@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff5f6" />
+  <title>Para mi persona favorita 💗</title>
+  <style>
+    :root { --rose: #d94f70; --deep-rose: #a93454; --ink: #50333d; --cream: #fff9f6; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100vh; overflow-x: hidden; color: var(--ink); background: radial-gradient(ellipse at 12% 18%, #ffe1e9 0, transparent 29%), radial-gradient(ellipse at 88% 80%, #ffe8dc 0, transparent 32%), var(--cream); font-family: Georgia, "Times New Roman", serif; }
+    .page { width: min(100% - 32px, 900px); margin: auto; }
+    .hero { min-height: 100svh; display: grid; place-items: center; padding: 48px 0; }
+    .card { position: relative; width: 100%; padding: clamp(26px, 6vw, 58px); overflow: hidden; text-align: center; border: 1px solid #f3cbd4; border-radius: 30px; background: rgb(255 255 255 / 78%); box-shadow: 0 24px 70px rgb(155 65 91 / 13%); backdrop-filter: blur(8px); }
+    .eyebrow { color: var(--rose); font-size: .82rem; letter-spacing: .22em; text-transform: uppercase; }
+    h1 { margin: 13px 0 12px; color: var(--deep-rose); font-size: clamp(2.25rem, 8vw, 4.8rem); line-height: 1.02; }
+    .intro { max-width: 570px; margin: 0 auto 28px; color: #76545f; font-size: clamp(1.05rem, 3vw, 1.25rem); line-height: 1.7; }
+    .photo-wrap { position: relative; width: min(100%, 360px); aspect-ratio: 4 / 4.4; margin: 0 auto 27px; padding: 9px; border: 1px solid #f1c4d0; border-radius: 22px; background: white; box-shadow: 0 12px 35px rgb(155 65 91 / 16%); transform: rotate(-1.5deg); }
+    .photo-wrap img { display: block; width: 100%; height: 100%; border-radius: 15px; object-fit: cover; }
+    .photo-note { position: absolute; right: -10px; bottom: 17px; padding: 9px 14px; border-radius: 999px; color: white; background: var(--rose); font-size: .92rem; transform: rotate(4deg); }
+    .message-box { min-height: 86px; display: grid; place-items: center; max-width: 620px; margin: 0 auto 18px; padding: 14px 20px; border-radius: 18px; background: #fff1f4; }
+    #message { margin: 0; color: #87394f; font-size: clamp(1.18rem, 4vw, 1.55rem); line-height: 1.45; transition: opacity .2s ease, transform .2s ease; }
+    #message.changing { opacity: 0; transform: translateY(7px); }
+    button { border: 0; border-radius: 999px; padding: 14px 24px; color: white; background: linear-gradient(135deg, #e66d89, #c94366); box-shadow: 0 8px 20px rgb(201 67 102 / 25%); font: 700 1rem Georgia, "Times New Roman", serif; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
+    button:hover { transform: translateY(-2px); box-shadow: 0 11px 25px rgb(201 67 102 / 32%); }
+    button:active { transform: scale(.97); }
+    button:focus-visible { outline: 3px solid #f5a7b9; outline-offset: 4px; }
+    .forever { margin: 25px 0 0; color: #a4576b; font-size: 1.03rem; }
+    footer { padding: 0 0 28px; color: #a27a84; text-align: center; font-size: .9rem; }
+    .heart { position: fixed; z-index: 5; bottom: -40px; pointer-events: none; animation: float-up 3.2s ease-in forwards; }
+    @keyframes float-up { to { transform: translateY(-110vh) rotate(28deg); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="title">
+      <div class="card">
+        <div class="eyebrow">Hecho con todo mi amor</div>
+        <h1 id="title">Para mi persona favorita</h1>
+        <p class="intro">Quería guardar en un lugar bonito un poquito de todo lo que siento por ti. Porque desde que llegaste, mis días tienen más luz y mi corazón encontró su lugar favorito.</p>
+        <figure class="photo-wrap">
+          <!-- Reemplaza "foto.jpg" por el nombre de tu imagen, por ejemplo: "nosotros.jpg". -->
+          <img src="foto.jpg" alt="Una foto de mi persona favorita" />
+          <figcaption class="photo-note">Mi lugar feliz 💕</figcaption>
+        </figure>
+        <div class="message-box" aria-live="polite" aria-atomic="true"><p id="message">Tu belleza no solo se ve: también se siente en la paz y la alegría que llevas contigo. 💗</p></div>
+        <button id="loveButton" type="button">Otra razón para amarte 💌</button>
+        <p class="forever">Hoy, mañana y en cada vida que me toque vivir: te elegiría a ti. ♡</p>
+      </div>
+    </section>
+    <footer>Con amor, para siempre. ✨</footer>
+  </main>
+  <script>
+    const messages = [
+      "Tu sonrisa tiene esa magia que puede mejorar hasta mi día más difícil. 💖",
+      "Eres hermosa por fuera, pero lo que eres por dentro me enamora todavía más. 🌷",
+      "Admiro tu forma de mirar el mundo y la ternura con la que haces todo. ✨",
+      "Si pudiera pedir un deseo cada día, pediría seguir compartiendo mi vida contigo. 💫",
+      "Tus ojos son mi paisaje favorito y tus abrazos, mi lugar seguro. 🥰",
+      "Gracias por existir, por ser tú y por hacer que mi mundo sea más bonito. 💕",
+      "No importa cuántos años pasen: siempre encontraré nuevas razones para amarte. 🌹",
+      "Tu belleza ilumina una habitación; tu corazón ilumina mi vida entera. ☀️",
+      "Quiero cuidarte, apoyarte y celebrar cada una de tus sonrisas. Hoy y siempre. 💗",
+      "Mi parte favorita de cualquier día es saber que estás en mi vida. 💌",
+      "Te amo por quien eres, por quien soy a tu lado y por todo lo que aún nos espera. ♾️",
+      "Prometo seguir eligiéndote, en los días fáciles y en los que necesitemos un abrazo extra. 🤍"
+    ];
+    let messageIndex = 0;
+    const message = document.querySelector("#message");
+    const button = document.querySelector("#loveButton");
+    button.addEventListener("click", () => {
+      message.classList.add("changing");
+      window.setTimeout(() => {
+        messageIndex = (messageIndex + 1) % messages.length;
+        message.textContent = messages[messageIndex];
+        message.classList.remove("changing");
+      }, 180);
+      makeHearts();
+    });
+    function makeHearts() {
+      const symbols = ["♥", "♡", "💗", "💕"];
+      for (let i = 0; i < 9; i++) {
+        const heart = document.createElement("span");
+        heart.className = "heart";
+        heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.fontSize = `${16 + Math.random() * 22}px`;
+        heart.style.color = ["#d94f70", "#ef8da3", "#c94a70"][Math.floor(Math.random() * 3)];
+        heart.style.animationDelay = `${Math.random() * 0.7}s`;
+        document.body.appendChild(heart);
+        window.setTimeout(() => heart.remove(), 4100);
+      }
+    }
+  </script>
+</body>
+</html>
